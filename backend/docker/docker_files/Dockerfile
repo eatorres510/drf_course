@@ -4,9 +4,18 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
 RUN set -e; \
-    apt-get update ;\
-    apt-get -y install netcat ;\
-    apt-get -y install gettext ;
+    apt-get update
+RUN set -e; \
+    apt-get update; \
+    apt-get -y install netcat-openbsd;
+RUN set -e; \
+    apt-get -y install gettext
+RUN set -e; \
+    apt-get -y install httpie
+RUN set -e; \
+    pip install --upgrade pip
+RUN set -e; \
+    pip install flask
 
 RUN mkdir /code
 COPY . /code/
